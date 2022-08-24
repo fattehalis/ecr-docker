@@ -5,7 +5,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-         sh 'docker build -t jenkins-docker-pipeline-repo .'
+         sh 'docker build -t jenkins .'
         }
       }
     }
@@ -14,8 +14,8 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-           sh 'docker tag jenkins-docker-pipeline-repo:latest 078591229396.dkr.ecr.us-east-1.amazonaws.com/jenkins-docker-pipeline-repo:latest'
-           sh 'docker push 078591229396.dkr.ecr.us-east-1.amazonaws.com/jenkins-docker-pipeline-repo:latest'
+           sh 'docker tag jenkins:latest public.ecr.aws/g8n9i4i6/jenkins:latest'
+           sh 'docker push public.ecr.aws/g8n9i4i6/jenkins:latest'
          }
         }
       }
