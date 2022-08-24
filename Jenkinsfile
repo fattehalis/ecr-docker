@@ -5,7 +5,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-        sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/g8n9i4i6'
+        
          sh 'docker build -t jenkins .'
         }
       }
